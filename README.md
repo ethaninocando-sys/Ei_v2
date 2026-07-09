@@ -14,20 +14,21 @@ bone background `#f4f1ea`, deep navy ink `#16223b`, emerald accent `#0f7a53`
 
 ## Structure
 
-Single focused landing page (`/`):
+The funnel (modeled on the ProfResults flow — video scripts in `/video-scripts`):
 
 ```
-Hero (headline + hook video + CTA + trust chips)
- → Benefits ("why the top 3")
- → Before / After (interactive)
- → How it works (4 steps)
- → Case study (honest scope-of-work)
- → FAQ (includes $497/mo + 90-day guarantee)
- → Side offers (Ads / Websites / Automations — understated)
- → Inquiry form (final CTA)
+/            Landing page: hero (hook video) → benefits → before/after
+             → how it works → case study → "3 free tips" email capture
+             → FAQ → side offers → inquiry form
+/free-tips   Thank-you page linked from the signup email — hosts the
+             3-tips video (noindex)
+/local-seo   Sales page: sales video → honest requirements → booking form
+/terms       Terms of Service (noindex)
 ```
 
-Plus `/terms` (noindex).
+Email capture posts to `/api/subscribe` (adds the contact to a Resend
+audience + sends the tips email). The inquiry forms post to `/api/contact`
+(lead notification + branded confirmation). No database anywhere.
 
 ## Quick start
 
@@ -50,8 +51,13 @@ study screenshot will go — nothing crashes when an asset is missing.
      Resend (until then the code falls back to `onboarding@resend.dev`, which
      only delivers to the Resend account owner's inbox).
    - `INQUIRIES_TO` — where lead notifications go (defaults to `siteConfig.email`).
-3. **Media** (drop files in `public/`, they swap in automatically):
-   - `public/videos/hero.mp4` (+ optional `public/images/hero-poster.jpg`)
+   - `RESEND_AUDIENCE_ID` — newsletter audience for "3 free tips" signups.
+3. **Media** (drop files in `public/`, they swap in automatically — scripts for
+   all three videos are in `/video-scripts`):
+   - `public/videos/hero.mp4` — homepage hook video (~2:30)
+   - `public/videos/local-seo.mp4` — sales video (~6:30)
+   - `public/videos/free-tips.mp4` — 3-tips video (~7:00)
+   - optional posters: `public/images/{hero,local-seo,free-tips}-poster.jpg`
    - `public/images/case-study.jpg` — a real GBP / ranking screenshot.
 4. **Copy & numbers** — all in `src/lib/content.ts`, including the illustrative
    before/after figures (replace with real client results when available) and

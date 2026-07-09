@@ -45,7 +45,7 @@ export function Footer() {
               ))}
               <li>
                 <a
-                  href="#inquiry"
+                  href="/#inquiry"
                   className="text-ink/70 transition-colors hover:text-ink"
                 >
                   Free strategy call

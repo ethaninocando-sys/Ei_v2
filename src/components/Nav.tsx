@@ -40,7 +40,7 @@ export function Nav() {
               </li>
             ))}
           </ul>
-          <Button href="#inquiry" className="!px-5 !py-2.5">
+          <Button href="/#inquiry" className="!px-5 !py-2.5">
             Free strategy call
           </Button>
         </div>
@@ -87,7 +87,7 @@ export function Nav() {
               </li>
             ))}
             <li className="mt-2">
-              <Button href="#inquiry" className="w-full">
+              <Button href="/#inquiry" className="w-full">
                 Free strategy call
               </Button>
             </li>

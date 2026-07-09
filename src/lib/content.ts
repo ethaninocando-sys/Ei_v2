@@ -9,10 +9,13 @@
 
 import { siteConfig } from "./config";
 
+// Anchor links are prefixed with "/" so they work from /local-seo and
+// /free-tips too, not just the homepage.
 export const nav = [
-  { label: "The difference", href: "#difference" },
-  { label: "How it works", href: "#how-it-works" },
-  { label: "FAQ", href: "#faq" },
+  { label: "The difference", href: "/#difference" },
+  { label: "How it works", href: "/#how-it-works" },
+  { label: "Local SEO", href: "/local-seo" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export const hero = {
@@ -214,4 +217,79 @@ export const inquiry = {
 export const guarantee = {
   price: "$497/mo",
   promise: "Top 3 in 90 days, or we work for free until you're there.",
+};
+
+// Lead magnet — the "3 free tips" email capture on the homepage. This is the
+// secondary conversion path for visitors not ready to book a call yet; the
+// hook video's CTA points here.
+export const leadMagnet = {
+  eyebrow: "Free stuff",
+  title: "3 tips to rank higher on Google.",
+  body: "Get a free video showing the first three things I do when I start working with a local business to get them into the top 3. No technical know-how needed — drop in your email and it lands straight in your inbox.",
+  emailPlaceholder: "name@yourbusiness.com",
+  cta: "Get the 3 free tips",
+  disclaimer: "You'll also get the newsletter — unsubscribe anytime, and I'll never bother you again.",
+  successTitle: "Check your inbox!",
+  successBody: "Your 3 free tips are on the way. If the email isn't there in a couple of minutes, check your spam folder.",
+};
+
+// /free-tips — the page the signup email links to, hosting the tips video.
+export const freeTips = {
+  eyebrow: "Your free video",
+  title: "3 tips to rank higher on Google.",
+  intro: "Thanks for signing up. These are the first three things I do when I start working with a local business — and you can put every one of them to work today.",
+  videoLabel: "3 free tips video (~7 min) — GBP, website, citations",
+  tips: [
+    {
+      title: "Fill out your Google Business Profile",
+      body: "Claim it free at business.google.com and complete everything — services, photos, hours, address — and collect reviews consistently. This is where I start with every client.",
+    },
+    {
+      title: "Make your website match",
+      body: "Google wants to know two things: what you do, and where you do it. Say both clearly — starting with your headline. \"Plumbing in McAllen, TX\" beats \"Welcome to our website\" every time.",
+    },
+    {
+      title: "Clean up your citations",
+      body: "Google trusts businesses whose name, address, and phone number match everywhere — directories, the chamber of commerce, the online yellow pages. Inconsistency is a mess, and Google doesn't trust a mess.",
+    },
+  ],
+  cta: { label: "See how I'd do it for you", href: "/local-seo" },
+};
+
+// /local-seo — the sales page: video, honest requirements, booking form.
+export const localSeo = {
+  hero: {
+    eyebrow: "For local businesses",
+    title: "The only two things you need to know about marketing.",
+    intro: "This short video covers the two things that actually matter, how to tell whether we'd be a good match, and exactly what happens when we work together.",
+    videoLabel: "Local SEO sales video (~7 min)",
+  },
+  requirements: {
+    eyebrow: "Are we a match?",
+    title: "A few honest requirements.",
+    intro: "I'd rather tell you where you stand before the call than waste your time on it. If these four sound like you, we're probably a great match.",
+    items: [
+      {
+        title: "You're doing well and want more",
+        body: "I work with businesses that are already doing well and want to scale up. If you're at zero and just starting out — or about to go under — we're probably not a good match yet.",
+      },
+      {
+        title: "You're not looking for a next-weekend miracle",
+        body: "The work compounds over weeks and months — that's exactly why the guarantee is 90 days, not 9 days. If you need results by Saturday, this isn't it.",
+      },
+      {
+        title: "$497/month works for you",
+        body: "Flat rate for the core work of getting you into the top 3. Retargeting on Google and Meta is custom by industry — we'd scope that on the call. If $497 is your last dollar, don't spend it here.",
+      },
+      {
+        title: "You don't need a 48-page contract",
+        body: "No long-term lock-in, no legalese. If at any point you're unhappy or feel we've done enough, say the word and we part ways — no hard feelings.",
+      },
+    ],
+  },
+  cta: {
+    eyebrow: "Next step",
+    title: "Book your free strategy call.",
+    body: "If you read those requirements and thought \"that's me\" — we should talk. There's no sales floor and no closers: it's me on the call. Fill out the form and I'll personally reach out to find a time that works.",
+  },
 };

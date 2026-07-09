@@ -37,10 +37,17 @@ export const siteConfig = {
 
 export const video = {
   /**
-   * Self-hosted hero video. Drop an MP4 at public/videos/hero.mp4 (and an
-   * optional poster at public/images/hero-poster.jpg) and it plays
-   * automatically; while missing, a labeled placeholder shows instead.
+   * Self-hosted videos. Drop an MP4 at the path below (plus an optional poster
+   * image) and it plays automatically; while missing, a labeled placeholder
+   * shows instead. Scripts for all three live in /video-scripts.
    */
+  // Homepage hook video (~2:30)
   heroSrc: "/videos/hero.mp4",
   heroPoster: "/images/hero-poster.jpg",
+  // /local-seo sales video (~6:30)
+  salesSrc: "/videos/local-seo.mp4",
+  salesPoster: "/images/local-seo-poster.jpg",
+  // /free-tips "3 free tips" video (~7:00)
+  tipsSrc: "/videos/free-tips.mp4",
+  tipsPoster: "/images/free-tips-poster.jpg",
 };

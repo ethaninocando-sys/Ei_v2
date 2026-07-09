@@ -8,6 +8,7 @@ import { BenefitCards } from "@/components/BenefitCards";
 import { BeforeAfter } from "@/components/BeforeAfter";
 import { HowItWorks } from "@/components/HowItWorks";
 import { CaseStudy } from "@/components/CaseStudy";
+import { LeadMagnet } from "@/components/LeadMagnet";
 import { FaqSection } from "@/components/FaqSection";
 import { SideOffers } from "@/components/SideOffers";
 import { InquiryForm } from "@/components/InquiryForm";
@@ -97,6 +98,7 @@ export default function Home() {
       <BeforeAfter />
       <HowItWorks />
       <CaseStudy imageSrc={caseImageSrc} />
+      <LeadMagnet />
       <FaqSection />
       <SideOffers />
 
