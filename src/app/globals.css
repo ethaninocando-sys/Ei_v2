@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/*
+  Ei Conversion — brand tokens.
+
+  Design language carried over from the canyesa_prototype build: a warm bone
+  background, deep-navy ink, restrained editorial type (Fraunces display +
+  Mulish sans), and disciplined motion. Retuned for a credible local-SEO
+  agency: the travel-warm amber CTA is replaced by a deep emerald that reads
+  as growth / ranking / "go", and doubles as the win-state accent in the
+  before/after. Sand still dominates; emerald is CTA-and-accent only; sea and
+  ink are used sparingly.
+*/
+@theme {
+  --color-ink: #16223b; /* deep navy — text/anchor, dark sections */
+  --color-sand: #f4f1ea; /* warm bone — dominant background */
+  --color-sea: #2c6e6a; /* muted teal — secondary accent / eyebrows */
+  --color-emerald: #0f7a53; /* growth green — CTAs & accent only */
+  --color-stone: #857f72; /* soft neutral — captions/dividers */
+
+  --color-sand-50: #faf8f3;
+  --color-sand-200: #e7e0d1;
+  --color-ink-80: #3b465f;
+  --color-emerald-600: #0b6543; /* CTA hover */
+
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-mulish), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-sand);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+  }
+
+  /* Visible keyboard focus everywhere (quality floor). */
+  :focus-visible {
+    outline: 2px solid var(--color-sea);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-emerald) 30%, transparent);
+  }
+}
+
+/* Gentle scroll fade-in — respects reduced-motion. */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+  will-change: opacity, transform;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

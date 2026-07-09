@@ -1,0 +1,11 @@
+/node_modules
+/.next
+/out
+/build
+*.log
+npm-debug.log*
+.DS_Store
+.env*.local
+next-env.d.ts
+/.vercel
+/coverage
