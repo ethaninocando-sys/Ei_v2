@@ -4,19 +4,22 @@ import { useEffect, useState } from "react";
 import { PlayCircle } from "lucide-react";
 
 /**
- * Hero video block. If a real `src` is provided (resolved server-side, so it
- * only appears once the file exists in /public), it autoplays muted/looped and
- * falls back to the poster frame under prefers-reduced-motion. While no source
+ * Hero video block. A `wistiaId` takes priority and renders a Wistia embed.
+ * Otherwise, if a real `src` is provided (resolved server-side, so it only
+ * appears once the file exists in /public), it autoplays muted/looped and
+ * falls back to the poster frame under prefers-reduced-motion. While neither
  * exists it renders a clearly-labeled placeholder well in the same footprint,
  * so the layout is complete before the video is recorded.
  */
 export function VideoBlock({
   src,
+  wistiaId,
   poster,
   label,
   className = "",
 }: {
   src?: string;
+  wistiaId?: string;
   poster?: string;
   label: string;
   className?: string;
@@ -30,6 +33,18 @@ export function VideoBlock({
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
   }, []);
+
+  if (wistiaId) {
+    return (
+      <iframe
+        src={`https://fast.wistia.net/embed/iframe/${wistiaId}`}
+        title={label}
+        allow="autoplay; fullscreen"
+        allowFullScreen
+        className={`aspect-video w-full rounded-2xl shadow-sm ${className}`}
+      />
+    );
+  }
 
   if (!src) {
     return (

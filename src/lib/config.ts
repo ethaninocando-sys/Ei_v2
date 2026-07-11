@@ -40,14 +40,19 @@ export const video = {
    * Self-hosted videos. Drop an MP4 at the path below (plus an optional poster
    * image) and it plays automatically; while missing, a labeled placeholder
    * shows instead. Scripts for all three live in /video-scripts.
+   *
+   * A `*WistiaId` takes priority over the matching `*Src` mp4 when both are set.
    */
   // Homepage hook video (~2:30)
+  heroWistiaId: "gyy4vzszf41iaaf",
   heroSrc: "/videos/hero.mp4",
   heroPoster: "/images/hero-poster.jpg",
   // /local-seo sales video (~6:30)
+  salesWistiaId: "",
   salesSrc: "/videos/local-seo.mp4",
   salesPoster: "/images/local-seo-poster.jpg",
   // /free-tips "3 free tips" video (~7:00)
+  tipsWistiaId: "",
   tipsSrc: "/videos/free-tips.mp4",
   tipsPoster: "/images/free-tips-poster.jpg",
 };

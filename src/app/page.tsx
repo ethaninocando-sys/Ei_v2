@@ -86,6 +86,7 @@ export default function Home() {
             <FadeIn delay={120}>
               <VideoBlock
                 src={heroVideoSrc}
+                wistiaId={video.heroWistiaId}
                 poster={heroPoster}
                 label={hero.videoLabel}
               />
