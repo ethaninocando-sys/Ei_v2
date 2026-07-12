@@ -3,12 +3,11 @@ import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Button } from "@/components/Button";
-import { VideoBlock } from "@/components/VideoBlock";
+import { WistiaEmbed } from "@/components/WistiaEmbed";
 import { InquiryForm } from "@/components/InquiryForm";
 import { Section, SectionHeading, Em } from "@/components/Section";
 import { localSeo, guarantee } from "@/lib/content";
-import { video } from "@/lib/config";
-import { existingImage } from "@/lib/assets";
+import { wistia } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Local SEO — rank in the top 3 on Google",
@@ -17,9 +16,6 @@ export const metadata: Metadata = {
 };
 
 export default function LocalSeoPage() {
-  const salesVideoSrc = existingImage(video.salesSrc);
-  const salesPoster = existingImage(video.salesPoster);
-
   return (
     <>
       {/* HERO — sales video front and center */}
@@ -37,11 +33,7 @@ export default function LocalSeoPage() {
             </p>
           </FadeIn>
           <FadeIn delay={120} className="mt-10">
-            <VideoBlock
-              src={salesVideoSrc}
-              poster={salesPoster}
-              label={localSeo.hero.videoLabel}
-            />
+            <WistiaEmbed mediaId={wistia.salesMediaId} label={localSeo.hero.videoLabel} />
           </FadeIn>
           <FadeIn delay={200} className="mt-8">
             <p className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-emerald/25 bg-emerald/[0.06] px-5 py-2 text-sm font-semibold text-emerald">

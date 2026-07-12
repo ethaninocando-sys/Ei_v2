@@ -30,5 +30,8 @@ Three videos, three files. Each file contains **two versions**:
   not rankings caused) — keep it that way.
 - **Wardrobe/setting:** consistent across all three videos — they'll be watched
   in sequence within days of each other.
-- After recording, drop the files in `public/videos/` (`hero.mp4`,
-  `free-tips.mp4`, `local-seo.mp4`) and they appear on the site automatically.
+- **Hosting:** videos are hosted on Wistia. After publishing, copy the media ID
+  (the hashed string in the share/embed URL, e.g.
+  `ethaninocando.wistia.com/s/<mediaId>`) into `src/lib/config.ts` -> `wistia`
+  and it appears on the site automatically. `heroMediaId` is already set to the
+  recorded homepage hook video (`gyy4vzszf41iaaf`).

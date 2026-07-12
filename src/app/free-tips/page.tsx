@@ -3,10 +3,9 @@ import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Button } from "@/components/Button";
-import { VideoBlock } from "@/components/VideoBlock";
+import { WistiaEmbed } from "@/components/WistiaEmbed";
 import { freeTips } from "@/lib/content";
-import { video } from "@/lib/config";
-import { existingImage } from "@/lib/assets";
+import { wistia } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Your 3 free tips",
@@ -14,9 +13,6 @@ export const metadata: Metadata = {
 };
 
 export default function FreeTipsPage() {
-  const tipsVideoSrc = existingImage(video.tipsSrc);
-  const tipsPoster = existingImage(video.tipsPoster);
-
   return (
     <section className="pt-28 pb-24 sm:pt-36">
       <Container size="narrow">
@@ -31,7 +27,7 @@ export default function FreeTipsPage() {
         </FadeIn>
 
         <FadeIn delay={120} className="mt-10">
-          <VideoBlock src={tipsVideoSrc} poster={tipsPoster} label={freeTips.videoLabel} />
+          <WistiaEmbed mediaId={wistia.tipsMediaId} label={freeTips.videoLabel} />
         </FadeIn>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-3">

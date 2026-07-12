@@ -3,7 +3,7 @@ import { Container } from "@/components/Container";
 import { FadeIn } from "@/components/FadeIn";
 import { Button } from "@/components/Button";
 import { Eyebrow } from "@/components/Eyebrow";
-import { VideoBlock } from "@/components/VideoBlock";
+import { WistiaEmbed } from "@/components/WistiaEmbed";
 import { BenefitCards } from "@/components/BenefitCards";
 import { BeforeAfter } from "@/components/BeforeAfter";
 import { HowItWorks } from "@/components/HowItWorks";
@@ -14,7 +14,7 @@ import { SideOffers } from "@/components/SideOffers";
 import { InquiryForm } from "@/components/InquiryForm";
 import { Section, SectionHeading, Em } from "@/components/Section";
 import { hero, inquiry, caseStudy } from "@/lib/content";
-import { siteConfig, video } from "@/lib/config";
+import { siteConfig, wistia } from "@/lib/config";
 import { existingImage } from "@/lib/assets";
 
 // LocalBusiness / ProfessionalService structured data for local + topical SEO.
@@ -42,8 +42,6 @@ const businessSchema = {
 };
 
 export default function Home() {
-  const heroVideoSrc = existingImage(video.heroSrc);
-  const heroPoster = existingImage(video.heroPoster);
   const caseImageSrc = existingImage(caseStudy.image);
 
   return (
@@ -84,11 +82,7 @@ export default function Home() {
             </FadeIn>
 
             <FadeIn delay={120}>
-              <VideoBlock
-                src={heroVideoSrc}
-                poster={heroPoster}
-                label={hero.videoLabel}
-              />
+              <WistiaEmbed mediaId={wistia.heroMediaId} label={hero.videoLabel} />
             </FadeIn>
           </div>
         </Container>
