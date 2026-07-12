@@ -44,11 +44,11 @@ export const video = {
    * A `*WistiaId` takes priority over the matching `*Src` mp4 when both are set.
    */
   // Homepage hook video (~2:30)
-  heroWistiaId: "gyy4vzszf41iaaf",
+  heroWistiaId: "xbpc0fab1l",
   heroSrc: "/videos/hero.mp4",
   heroPoster: "/images/hero-poster.jpg",
   // /local-seo sales video (~6:30)
-  salesWistiaId: "",
+  salesWistiaId: "40uy4a3tn35to56",
   salesSrc: "/videos/local-seo.mp4",
   salesPoster: "/images/local-seo-poster.jpg",
   // /free-tips "3 free tips" video (~7:00)

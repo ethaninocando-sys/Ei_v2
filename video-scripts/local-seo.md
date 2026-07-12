@@ -98,8 +98,8 @@ depends on your industry and your budget — that part is custom, so we'd work i
 out on a call. But the core work — getting you into the top three — is 497 a
 month, and for most people, that works.
 
-Fair warning: as the schedule fills up, that price is going up. It's gone up
-before, it'll go up again. If you lock in a rate, you keep that rate. But — if
+Fair warning: as the schedule fills up, that price is going up.
+If you lock in a rate, you keep that rate. But — if
 497 a month is prohibitively expensive for you right now… we're also not a good
 match. I don't want you spending your last dollar on this. That wouldn't make
 sense for either of us.
@@ -118,13 +118,15 @@ where you stand. If you heard them and thought "that's me" — then I think we'r
 a great match, and you should book the call.
 
 There's no sales floor here. No closers, no setters. It's going to be me on
-that call. And my days are mostly filled with client work — actually moving the
+that call. And my days are mostly filled with client work — like helping move the
 needle — so if you're not there yet, that's okay. Wait until you are.
 
 But if you are: there's a form right below this video. Fill it out, we'll find
 a time that works, and we'll talk — and see if we're a good match.
 
 Looking forward to it.
+
+And let's get you ranking higher on google.
 
 ---
 
