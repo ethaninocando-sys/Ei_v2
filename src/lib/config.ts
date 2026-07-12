@@ -48,7 +48,7 @@ export const video = {
   heroSrc: "/videos/hero.mp4",
   heroPoster: "/images/hero-poster.jpg",
   // /local-seo sales video (~6:30)
-  salesWistiaId: "40uy4a3tn35to56",
+  salesWistiaId: "f6vyxr06g8wiaas",
   salesSrc: "/videos/local-seo.mp4",
   salesPoster: "/images/local-seo-poster.jpg",
   // /free-tips "3 free tips" video (~7:00)
