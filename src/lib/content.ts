@@ -147,9 +147,27 @@ export const caseStudy = {
       body: "Built citations across relevant directories to strengthen local trust signals and consistency.",
     },
   ],
-  imageLabel: "Case study — GBP / ranking screenshot (real, once available)",
-  image: "/images/case-study.jpg",
-  imageAlt: "Google Business Profile ranking results",
+  client: "RGV Elite Comics & Collectibles — Edinburg, TX",
+  images: {
+    heatmap: {
+      src: "/images/case-study-heatmap.png",
+      alt: "Google Maps ranking heatmap — ranked #1 across Edinburg, TX",
+      label: "Ranking heatmap (real, once available)",
+      ratio: "16 / 10",
+    },
+    gbp: {
+      src: "/images/case-study-gbp.png",
+      alt: "Google Business Profile — RGV Elite Comics & Collectibles, 4.8 stars",
+      label: "Google Business Profile",
+      ratio: "4 / 5",
+    },
+    website: {
+      src: "/images/case-study-website.png",
+      alt: "SEO-built website homepage for RGV Elite Comics & Collectibles",
+      label: "Website",
+      ratio: "4 / 5",
+    },
+  },
 };
 
 export const faq = {

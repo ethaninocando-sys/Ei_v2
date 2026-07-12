@@ -7,9 +7,16 @@ import { Placeholder } from "./Placeholder";
 import { icons } from "./icons";
 import { caseStudy } from "@/lib/content";
 
-/** `imageSrc` is resolved server-side (via existingImage) and passed in, so the
- *  real screenshot swaps in the moment the file lands in /public. */
-export function CaseStudy({ imageSrc }: { imageSrc?: string }) {
+type CaseImage = { src?: string; alt: string; label: string; ratio: string };
+
+/** Each screenshot's `src` is resolved server-side (via existingImage) and passed
+ *  in, so the real image swaps in the moment the file lands in /public; until then
+ *  its labeled placeholder shows. */
+export function CaseStudy({
+  images,
+}: {
+  images: { heatmap: CaseImage; gbp: CaseImage; website: CaseImage };
+}) {
   return (
     <Section>
       <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -49,13 +56,40 @@ export function CaseStudy({ imageSrc }: { imageSrc?: string }) {
           </div>
         </div>
 
-        <Placeholder
-          label={caseStudy.imageLabel}
-          src={imageSrc}
-          alt={caseStudy.imageAlt}
-          ratio="4 / 5"
-          className="mx-auto max-w-sm shadow-sm lg:ml-auto"
-        />
+        <div className="mx-auto w-full max-w-md lg:ml-auto">
+          {/* Hero: ranking heatmap — the proof */}
+          <Placeholder
+            label={images.heatmap.label}
+            src={images.heatmap.src}
+            alt={images.heatmap.alt}
+            ratio={images.heatmap.ratio}
+            sizes="(min-width: 1024px) 42vw, 100vw"
+            className="shadow-sm ring-1 ring-ink/10"
+          />
+          {/* Bottom row: GBP profile + website, equal-height thumbnails */}
+          <div className="mt-4 grid grid-cols-2 gap-4">
+            <Placeholder
+              label={images.gbp.label}
+              src={images.gbp.src}
+              alt={images.gbp.alt}
+              ratio={images.gbp.ratio}
+              sizes="(min-width: 1024px) 21vw, 50vw"
+              className="shadow-sm ring-1 ring-ink/10"
+            />
+            <Placeholder
+              label={images.website.label}
+              src={images.website.src}
+              alt={images.website.alt}
+              ratio={images.website.ratio}
+              sizes="(min-width: 1024px) 21vw, 50vw"
+              className="shadow-sm ring-1 ring-ink/10"
+            />
+          </div>
+          {/* Client caption */}
+          <p className="mt-3 text-center text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-stone">
+            {caseStudy.client}
+          </p>
+        </div>
       </div>
     </Section>
   );
