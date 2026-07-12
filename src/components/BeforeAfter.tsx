@@ -152,10 +152,6 @@ export function BeforeAfter() {
           </AnimatePresence>
         </div>
       </div>
-
-      <p className="mt-4 max-w-2xl text-xs leading-relaxed text-stone">
-        {beforeAfter.note}
-      </p>
     </Section>
   );
 }

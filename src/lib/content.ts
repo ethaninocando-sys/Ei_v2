@@ -9,23 +9,23 @@
 
 import { siteConfig } from "./config";
 
-// Anchor links are prefixed with "/" so they work from /local-seo and
-// /free-tips too, not just the homepage.
+// Anchor links point at /seo, where these sections live, so they work from
+// any page, not just /seo itself.
 export const nav = [
-  { label: "The difference", href: "/#difference" },
-  { label: "How it works", href: "/#how-it-works" },
-  { label: "Local SEO", href: "/local-seo" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "The difference", href: "/seo#difference" },
+  { label: "How it works", href: "/seo#how-it-works" },
+  { label: "Local SEO", href: "/" },
+  { label: "FAQ", href: "/seo#faq" },
 ];
 
 export const hero = {
   eyebrow: `Local SEO · ${siteConfig.region}`,
   title: "Is your business invisible on Google?",
   subtitle:
-    "Three out of four people looking for your service never scroll past the top 3 results on Google. If you're not there, you don't exist to them. We get Rio Grande Valley businesses into the top 3 — and keep them there.",
+    "Three out of four people looking for your service never scroll past the top 3 results on Google. If you're not there, you don't exist to them. We get Rio Grande Valley businesses into the top 3. And we keep them there.",
   primaryCta: { label: "Get your free strategy call", href: "#inquiry" },
   secondaryCta: { label: "See the difference", href: "#difference" },
-  videoLabel: "Homepage hook video (2–3 min) — why you're invisible on Google",
+  videoLabel: "Homepage hook video (2–3 min): why you're invisible on Google",
   // Small trust chips under the hero.
   chips: [
     "90-Day Top 3 Guarantee",
@@ -37,22 +37,22 @@ export const hero = {
 // "Is this even worth it?" — why ranking in the top 3 matters.
 export const benefits = {
   eyebrow: "The advantage",
-  title: "Why the top 3 changes everything.",
+  title: "But, is this even worth it?",
   items: [
     {
       icon: "eye",
       title: "Visibility",
-      body: "75% of people searching for your service click one of the top 3 results. If you're not there, you're invisible — no matter how good you are.",
+      body: "75% of people searching for your service go to the top 3 results. If you're not there, you're invisible.",
     },
     {
       icon: "coins",
       title: "No ad spend",
-      body: "Unlike Google or Meta ads, ranking organically doesn't cost you per click. The traffic keeps coming without a meter running.",
+      body: "No pay-per-click costs or big ad budgets, like you'd spend on Google Ads or Meta Ads.",
     },
     {
       icon: "trending",
       title: "Long-term asset",
-      body: "Once you're in the top 3, you tend to stay there for years — a compounding asset, not a monthly ad bill you can never turn off.",
+      body: "Once you're in the top 3, you'll usually stay there for years. No extra monthly costs.",
     },
   ],
 };
@@ -69,13 +69,11 @@ export type BeforeAfterStat = {
 export const beforeAfter: {
   eyebrow: string;
   title: string;
-  note: string;
   before: { stats: BeforeAfterStat[]; map: string };
   after: { stats: BeforeAfterStat[]; map: string };
 } = {
   eyebrow: "Before / After",
   title: "The difference the top 3 makes.",
-  note: "Illustrative of the movement local SEO produces over a typical engagement — an example of the pattern, not a guaranteed result.",
   before: {
     stats: [
       { label: "Average map rank", numeric: 86, suffix: "" },
@@ -98,27 +96,27 @@ export const beforeAfter: {
 
 export const howItWorks = {
   eyebrow: "How it works",
-  title: "Getting started is simple.",
+  title: "It's pretty easy.",
   steps: [
     {
       icon: "calendar",
       title: "Strategy call",
-      body: "Book a free call. We assess your market, your competitors, and where you currently rank across the Valley.",
+      body: "Book a free call. We'll look at your market and where you currently rank.",
     },
     {
       icon: "map",
       title: "Onboarding",
-      body: "We send simple instructions to get secure access to your Google Business Profile. It takes about 15 minutes of your time.",
+      body: "We'll send simple instructions to get secure access to your Google Business Profile. About 15 minutes of your time.",
     },
     {
       icon: "list",
       title: "Execution",
-      body: "We handle everything — profile optimization, an SEO-built website, citations, and ongoing work to climb the rankings.",
+      body: "We handle your Google profile, website, and citations, then keep pushing your rankings higher.",
     },
     {
       icon: "rocket",
-      title: "Measure & scale",
-      body: "We track rank, calls, and clicks, report back regularly, and double down on what's moving the needle.",
+      title: "What works?",
+      body: "We track what's working and do more of it.",
     },
   ],
 };
@@ -129,12 +127,12 @@ export const caseStudy = {
   eyebrow: "Recent work",
   title: "A look at what we do.",
   intro:
-    "A recent local project — here's exactly what we delivered, top to bottom.",
+    "A recent local project: here's exactly what we delivered, top to bottom.",
   items: [
     {
       icon: "pin",
       title: "Google Business Profile",
-      body: "Fully audited and optimized the GBP listing top to bottom — categories, services, photos, and posts.",
+      body: "Fully audited and optimized the GBP listing top to bottom: categories, services, photos, and posts.",
     },
     {
       icon: "globe",
@@ -147,7 +145,7 @@ export const caseStudy = {
       body: "Built citations across relevant directories to strengthen local trust signals and consistency.",
     },
   ],
-  client: "RGV Elite Comics & Collectibles — Edinburg, TX",
+  client: "RGV Elite Comics & Collectibles, Edinburg, TX",
   images: {
     heatmap: {
       src: "/images/case-study-heatmap.png",
@@ -176,11 +174,11 @@ export const faq = {
   items: [
     {
       q: "What's the difference between SEO and Google Ads?",
-      a: "Google Ads puts you at the top only as long as you keep paying — the moment you stop, you disappear. SEO (what we do) earns your spot organically, because Google decides you're the most relevant result. Once you're there, you stay without ongoing ad spend.",
+      a: "Google Ads puts you at the top only as long as you keep paying. The moment you stop, you disappear. SEO (what we do) earns your spot organically, because Google decides you're the most relevant result. Once you're there, you stay without ongoing ad spend.",
     },
     {
       q: "Which businesses do you work with?",
-      a: "Local businesses across the Rio Grande Valley — dentists, plumbers, lawyers, restaurants, clinics, contractors, any business that serves customers in a specific area. If people search your service plus your city, we can help you.",
+      a: "Local businesses across the Rio Grande Valley: dentists, plumbers, lawyers, restaurants, clinics, contractors, any business that serves customers in a specific area. If people search your service plus your city, we can help you.",
     },
     {
       q: "How much of my time will this take?",
@@ -188,11 +186,11 @@ export const faq = {
     },
     {
       q: "What are the terms and pricing?",
-      a: "It's $497/month with no long-term contracts — cancel anytime. Most clients stay because the results speak for themselves. And we guarantee top 3 rankings within 90 days, or we keep working for free until you're there.",
+      a: "It's $497/month with no long-term contracts. Cancel anytime. Most clients stay because the results speak for themselves. And we guarantee top 3 rankings within 90 days, or we keep working for free until you're there.",
     },
     {
       q: "How do we get started?",
-      a: "Book a free strategy call using the form on this page. We'll look at your current Google presence, assess your market, and tell you exactly what it would take to get you into the top 3 — no pressure, no obligation.",
+      a: "Book a free strategy call using the form on this page. We'll look at your current Google presence, assess your market, and tell you exactly what it would take to get you into the top 3. No pressure, no obligation.",
     },
   ],
 };
@@ -202,7 +200,7 @@ export const faq = {
 export const sideOffers = {
   eyebrow: "Beyond SEO",
   title: "Need more than rankings?",
-  body: "Local SEO is what we're known for. When it makes sense, we also handle the rest of your growth stack — so everything works together.",
+  body: "Local SEO is what we're known for. When it makes sense, we also handle the rest of your growth stack, so everything works together.",
   items: [
     {
       icon: "target",
@@ -227,7 +225,7 @@ export const inquiry = {
   title: "Let's get you into the top 3.",
   body: "Tell us about your business and we'll come back with exactly what it would take to rank you in the top 3 across the Valley. No cost, no obligation.",
   // Client-facing note about where submissions currently go while testing.
-  successTitle: "Thanks — we've got your details.",
+  successTitle: "Thanks! We've got your details.",
   successBody:
     "We'll review your business and reach out within 24 hours to book your free strategy call.",
 };
@@ -243,10 +241,10 @@ export const guarantee = {
 export const leadMagnet = {
   eyebrow: "Free stuff",
   title: "3 tips to rank higher on Google.",
-  body: "Get a free video showing the first three things I do when I start working with a local business to get them into the top 3. No technical know-how needed — drop in your email and it lands straight in your inbox.",
+  body: "Get a free video showing the first three things I do when I start working with a local business to get them into the top 3. No technical know-how needed. Drop in your email and it lands straight in your inbox.",
   emailPlaceholder: "name@yourbusiness.com",
   cta: "Get the 3 free tips",
-  disclaimer: "You'll also get the newsletter — unsubscribe anytime, and I'll never bother you again.",
+  disclaimer: "You'll also get the newsletter. Unsubscribe anytime, and I'll never bother you again.",
   successTitle: "Check your inbox!",
   successBody: "Your 3 free tips are on the way. If the email isn't there in a couple of minutes, check your spam folder.",
 };
@@ -255,26 +253,26 @@ export const leadMagnet = {
 export const freeTips = {
   eyebrow: "Your free video",
   title: "3 tips to rank higher on Google.",
-  intro: "Thanks for signing up. These are the first three things I do when I start working with a local business — and you can put every one of them to work today.",
-  videoLabel: "3 free tips video (~7 min) — GBP, website, citations",
+  intro: "Thanks for signing up. These are the first three things I do when I start working with a local business. And you can put every one of them to work today.",
+  videoLabel: "3 free tips video (~7 min): GBP, website, citations",
   tips: [
     {
       title: "Fill out your Google Business Profile",
-      body: "Claim it free at business.google.com and complete everything — services, photos, hours, address — and collect reviews consistently. This is where I start with every client.",
+      body: "Claim it free at business.google.com and complete everything (services, photos, hours, address) and collect reviews consistently. This is where I start with every client.",
     },
     {
       title: "Make your website match",
-      body: "Google wants to know two things: what you do, and where you do it. Say both clearly — starting with your headline. \"Plumbing in McAllen, TX\" beats \"Welcome to our website\" every time.",
+      body: "Google wants to know two things: what you do, and where you do it. Say both clearly, starting with your headline. \"Plumbing in McAllen, TX\" beats \"Welcome to our website\" every time.",
     },
     {
       title: "Clean up your citations",
-      body: "Google trusts businesses whose name, address, and phone number match everywhere — directories, the chamber of commerce, the online yellow pages. Inconsistency is a mess, and Google doesn't trust a mess.",
+      body: "Google trusts businesses whose name, address, and phone number match everywhere: directories, the chamber of commerce, the online yellow pages. Inconsistency is a mess, and Google doesn't trust a mess.",
     },
   ],
-  cta: { label: "See how I'd do it for you", href: "/local-seo" },
+  cta: { label: "See how I'd do it for you", href: "/" },
 };
 
-// /local-seo — the sales page: video, honest requirements, booking form.
+// / (homepage) — the sales page: video, honest requirements, booking form.
 export const localSeo = {
   hero: {
     eyebrow: "For local businesses",
@@ -289,25 +287,25 @@ export const localSeo = {
     items: [
       {
         title: "You're doing well and want more",
-        body: "I work with businesses that are already doing well and want to scale up. If you're at zero and just starting out — or about to go under — we're probably not a good match yet.",
+        body: "I work with businesses that are already doing well and want to scale up. If you're at zero and just starting out, or about to go under, we're probably not a good match yet.",
       },
       {
         title: "You're not looking for a next-weekend miracle",
-        body: "The work compounds over weeks and months — that's exactly why the guarantee is 90 days, not 9 days. If you need results by Saturday, this isn't it.",
+        body: "The work compounds over weeks and months: that's exactly why the guarantee is 90 days, not 9 days. If you need results by Saturday, this isn't it.",
       },
       {
         title: "$497/month works for you",
-        body: "Flat rate for the core work of getting you into the top 3. Retargeting on Google and Meta is custom by industry — we'd scope that on the call. If $497 is your last dollar, don't spend it here.",
+        body: "Flat rate for the core work of getting you into the top 3. Retargeting on Google and Meta is custom by industry. We'd scope that on the call. If $497 is your last dollar, don't spend it here.",
       },
       {
         title: "You don't need a 48-page contract",
-        body: "No long-term lock-in, no legalese. If at any point you're unhappy or feel we've done enough, say the word and we part ways — no hard feelings.",
+        body: "No long-term lock-in, no legalese. If at any point you're unhappy or feel we've done enough, say the word and we part ways, no hard feelings.",
       },
     ],
   },
   cta: {
     eyebrow: "Next step",
     title: "Book your free strategy call.",
-    body: "If you read those requirements and thought \"that's me\" — we should talk. There's no sales floor and no closers: it's me on the call. Fill out the form and I'll personally reach out to find a time that works.",
+    body: "If you read those requirements and thought \"that's me,\" we should talk. There's no sales floor and no closers: it's me on the call. Fill out the form and I'll personally reach out to find a time that works.",
   },
 };

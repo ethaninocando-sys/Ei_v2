@@ -21,13 +21,12 @@ export async function POST(request: Request) {
     lastName,
     email,
     phone,
-    businessName,
     industry,
-    website,
+    marketingSpend,
     message,
   } = body ?? {};
 
-  if (!firstName || !lastName || !email || !phone || !businessName || !industry || !message) {
+  if (!firstName || !lastName || !email || !phone || !industry || !marketingSpend || !message) {
     return NextResponse.json({ error: "Please fill in all required fields." }, { status: 400 });
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -41,14 +40,13 @@ export async function POST(request: Request) {
   // submission is never lost to an email misconfiguration.
   const formspreeSubmit = submitToFormspree({
     formType: "inquiry",
-    _subject: `New inquiry — ${firstName} ${lastName} (${businessName})`,
+    _subject: `New inquiry: ${firstName} ${lastName} (${industry})`,
     firstName,
     lastName,
     email,
     phone,
-    businessName,
     industry,
-    website: website || undefined,
+    marketingSpend,
     message,
   });
 
@@ -72,16 +70,15 @@ export async function POST(request: Request) {
   const notifyTo = process.env.INQUIRIES_TO ?? siteConfig.email;
 
   const safeFirstName = escapeHtml(String(firstName));
-  const safeBusiness = escapeHtml(String(businessName));
 
   const confirmationText = `Hi ${firstName},
 
-Thanks for reaching out to Ei Conversion. I got your details for ${businessName} and I'm looking forward to taking a look at your Google presence.
+Thanks for reaching out to Ei Conversion. I got your details and I'm looking forward to taking a look at your Google presence.
 
 Here's what happens next:
 1. I'll review your business and where you currently rank across the Valley.
 2. I'll reach out within 24 hours to book your free strategy call.
-3. On the call I'll show you exactly what it would take to get you into the top 3 — no pressure, no obligation.
+3. On the call I'll show you exactly what it would take to get you into the top 3. No pressure, no obligation.
 
 Talk soon,
 Ethan
@@ -105,13 +102,13 @@ ${siteConfig.email}`;
               <td style="background-color:#faf8f3;padding:40px;">
                 <h1 style="margin:0 0 16px;font-family:Georgia,'Times New Roman',serif;font-size:24px;font-weight:600;color:#16223b;">Thanks, ${safeFirstName}!</h1>
                 <p style="margin:0 0 24px;font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#16223b;">
-                  I got your details for <strong>${safeBusiness}</strong> and I'm looking forward to taking a look at your Google presence.
+                  I got your details and I'm looking forward to taking a look at your Google presence.
                 </p>
                 <h2 style="margin:0 0 12px;font-family:Helvetica,Arial,sans-serif;font-size:13px;font-weight:700;color:#0f7a53;letter-spacing:2px;text-transform:uppercase;">What happens next</h2>
                 <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 28px;">
                   <tr><td style="font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.7;color:#16223b;padding-bottom:8px;"><span style="color:#0f7a53;font-weight:700;">1.</span>&nbsp; I'll review your business and where you currently rank.</td></tr>
                   <tr><td style="font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.7;color:#16223b;padding-bottom:8px;"><span style="color:#0f7a53;font-weight:700;">2.</span>&nbsp; I'll reach out within 24 hours to book your free strategy call.</td></tr>
-                  <tr><td style="font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.7;color:#16223b;"><span style="color:#0f7a53;font-weight:700;">3.</span>&nbsp; On the call I'll show you exactly what it takes to reach the top 3 — no pressure.</td></tr>
+                  <tr><td style="font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.7;color:#16223b;"><span style="color:#0f7a53;font-weight:700;">3.</span>&nbsp; On the call I'll show you exactly what it takes to reach the top 3. No pressure.</td></tr>
                 </table>
                 <p style="margin:0;font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#16223b;">
                   Talk soon,<br />
@@ -139,15 +136,15 @@ ${siteConfig.email}`;
         from,
         to: notifyTo,
         replyTo: String(email),
-        subject: `New inquiry — ${firstName} ${lastName} (${businessName})`,
-        text: `Name: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\nBusiness: ${businessName}\nIndustry: ${industry}\nWebsite/GBP: ${website || "—"}\n\nChallenge:\n${message}`,
+        subject: `New inquiry: ${firstName} ${lastName} (${industry})`,
+        text: `Name: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\nIndustry: ${industry}\nMarketing spend: ${marketingSpend}\n\nChallenge:\n${message}`,
       },
       // Customer confirmation — branded, with a plain-text fallback.
       {
         from,
         to: String(email),
         replyTo: siteConfig.email,
-        subject: "Thanks for reaching out — Ei Conversion",
+        subject: "Thanks for reaching out · Ei Conversion",
         text: confirmationText,
         html: confirmationHtml,
       },

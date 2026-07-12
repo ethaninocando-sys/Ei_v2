@@ -44,9 +44,8 @@ export function InquiryForm() {
       lastName: data.get("lastName"),
       email: data.get("email"),
       phone: data.get("phone"),
-      businessName: data.get("businessName"),
       industry: data.get("industry"),
-      website: data.get("website"),
+      marketingSpend: data.get("marketingSpend"),
       message: data.get("message"),
     };
 
@@ -129,23 +128,18 @@ export function InquiryForm() {
 
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
-            <Label htmlFor="businessName">Business name</Label>
-            <input id="businessName" name="businessName" required className={fieldBase} placeholder="Your business" />
-          </div>
-          <div>
-            <Label htmlFor="industry">Industry</Label>
+            <Label htmlFor="industry">Which industry are you in?</Label>
             <input id="industry" name="industry" required className={fieldBase} placeholder="e.g. dentist, plumber, law" />
           </div>
+          <div>
+            <Label htmlFor="marketingSpend">Current marketing spend?</Label>
+            <input id="marketingSpend" name="marketingSpend" required className={fieldBase} placeholder="e.g. $500/mo, or none" />
+          </div>
         </div>
 
         <div>
-          <Label htmlFor="website">Website or Google listing</Label>
-          <input id="website" name="website" className={fieldBase} placeholder="Optional — your site or GBP link" />
-        </div>
-
-        <div>
-          <Label htmlFor="message">What's your biggest challenge getting found on Google?</Label>
-          <textarea id="message" name="message" rows={4} required className={fieldBase} placeholder="Tell us a little about where you're stuck." />
+          <Label htmlFor="message">What do you need help with specifically?</Label>
+          <textarea id="message" name="message" rows={4} required className={fieldBase} placeholder="Tell us a bit about it." />
         </div>
 
         {error && <p className="text-sm text-amber-300">{error}</p>}

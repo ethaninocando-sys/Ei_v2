@@ -23,16 +23,16 @@ const mulish = Mulish({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `Local SEO in the Rio Grande Valley — Rank Top 3 on Google | ${siteConfig.name}`,
+    default: `Local SEO in the Rio Grande Valley · Rank Top 3 on Google | ${siteConfig.name}`,
     template: `%s · ${siteConfig.name}`,
   },
   description:
-    "Ei Conversion gets Rio Grande Valley businesses into the top 3 on Google. Local SEO with a 90-day top-3 guarantee — no long-term contracts. Serving McAllen, Edinburg, Mission, Pharr, Harlingen, Weslaco and Brownsville.",
+    "Ei Conversion gets Rio Grande Valley businesses into the top 3 on Google. Local SEO with a 90-day top-3 guarantee, no long-term contracts. Serving McAllen, Edinburg, Mission, Pharr, Harlingen, Weslaco and Brownsville.",
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: siteConfig.name,
-    title: `Local SEO in the Rio Grande Valley — Rank Top 3 on Google | ${siteConfig.name}`,
+    title: `Local SEO in the Rio Grande Valley · Rank Top 3 on Google | ${siteConfig.name}`,
     description:
       "Get your local business into the top 3 on Google. Local SEO with a 90-day top-3 guarantee, no long-term contracts.",
   },
