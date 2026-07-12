@@ -28,7 +28,10 @@ The funnel (modeled on the ProfResults flow — video scripts in `/video-scripts
 
 Email capture posts to `/api/subscribe` (adds the contact to a Resend
 audience + sends the tips email). The inquiry forms post to `/api/contact`
-(lead notification + branded confirmation). No database anywhere.
+(lead notification + branded confirmation). Both routes also relay the
+submission server-side to Formspree (`src/lib/formspree.ts`), which acts as
+the durable record of every lead — independent of Resend, so a submission
+isn't lost if the email send fails or `RESEND_API_KEY` isn't configured.
 
 ## Quick start
 
@@ -52,6 +55,8 @@ study screenshot will go — nothing crashes when an asset is missing.
      only delivers to the Resend account owner's inbox).
    - `INQUIRIES_TO` — where lead notifications go (defaults to `siteConfig.email`).
    - `RESEND_AUDIENCE_ID` — newsletter audience for "3 free tips" signups.
+   - `FORMSPREE_ENDPOINT` — where lead/signup submissions are recorded
+     (defaults to the Ei Conversion Formspree form if unset).
 3. **Media** (drop files in `public/`, they swap in automatically — scripts for
    all three videos are in `/video-scripts`):
    - `public/videos/hero.mp4` — homepage hook video (~2:30)
