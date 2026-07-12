@@ -37,22 +37,22 @@ export const hero = {
 // "Is this even worth it?" — why ranking in the top 3 matters.
 export const benefits = {
   eyebrow: "The advantage",
-  title: "Why the top 3 changes everything.",
+  title: "But, is this even worth it?",
   items: [
     {
       icon: "eye",
       title: "Visibility",
-      body: "75% of people searching for your service click one of the top 3 results. If you're not there, you're invisible, no matter how good you are.",
+      body: "75% of people searching for your service go to the top 3 results. If you're not there, you're invisible.",
     },
     {
       icon: "coins",
       title: "No ad spend",
-      body: "Unlike Google or Meta ads, ranking organically doesn't cost you per click. The traffic keeps coming without a meter running.",
+      body: "No pay-per-click costs or big ad budgets, like you'd spend on Google Ads or Meta Ads.",
     },
     {
       icon: "trending",
       title: "Long-term asset",
-      body: "Once you're in the top 3, you tend to stay there for years: a compounding asset, not a monthly ad bill you can never turn off.",
+      body: "Once you're in the top 3, you'll usually stay there for years. No extra monthly costs.",
     },
   ],
 };
@@ -69,13 +69,11 @@ export type BeforeAfterStat = {
 export const beforeAfter: {
   eyebrow: string;
   title: string;
-  note: string;
   before: { stats: BeforeAfterStat[]; map: string };
   after: { stats: BeforeAfterStat[]; map: string };
 } = {
   eyebrow: "Before / After",
   title: "The difference the top 3 makes.",
-  note: "Illustrative of the movement local SEO produces over a typical engagement: an example of the pattern, not a guaranteed result.",
   before: {
     stats: [
       { label: "Average map rank", numeric: 86, suffix: "" },
@@ -98,27 +96,27 @@ export const beforeAfter: {
 
 export const howItWorks = {
   eyebrow: "How it works",
-  title: "Getting started is simple.",
+  title: "It's pretty easy.",
   steps: [
     {
       icon: "calendar",
       title: "Strategy call",
-      body: "Book a free call. We assess your market, your competitors, and where you currently rank across the Valley.",
+      body: "Book a free call. We'll look at your market and where you currently rank.",
     },
     {
       icon: "map",
       title: "Onboarding",
-      body: "We send simple instructions to get secure access to your Google Business Profile. It takes about 15 minutes of your time.",
+      body: "We'll send simple instructions to get secure access to your Google Business Profile. About 15 minutes of your time.",
     },
     {
       icon: "list",
       title: "Execution",
-      body: "We handle everything: profile optimization, an SEO-built website, citations, and ongoing work to climb the rankings.",
+      body: "We handle your Google profile, website, and citations, then keep pushing your rankings higher.",
     },
     {
       icon: "rocket",
-      title: "Measure & scale",
-      body: "We track rank, calls, and clicks, report back regularly, and double down on what's moving the needle.",
+      title: "What works?",
+      body: "We track what's working and do more of it.",
     },
   ],
 };
