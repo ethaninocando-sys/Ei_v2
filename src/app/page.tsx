@@ -44,7 +44,11 @@ const businessSchema = {
 export default function Home() {
   const heroVideoSrc = existingImage(video.heroSrc);
   const heroPoster = existingImage(video.heroPoster);
-  const caseImageSrc = existingImage(caseStudy.image);
+  const caseImages = {
+    heatmap: { ...caseStudy.images.heatmap, src: existingImage(caseStudy.images.heatmap.src) },
+    gbp: { ...caseStudy.images.gbp, src: existingImage(caseStudy.images.gbp.src) },
+    website: { ...caseStudy.images.website, src: existingImage(caseStudy.images.website.src) },
+  };
 
   return (
     <>
@@ -98,7 +102,7 @@ export default function Home() {
       <BenefitCards />
       <BeforeAfter />
       <HowItWorks />
-      <CaseStudy imageSrc={caseImageSrc} />
+      <CaseStudy images={caseImages} />
       <LeadMagnet />
       <FaqSection />
       <SideOffers />
