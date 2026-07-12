@@ -36,13 +36,15 @@ export function VideoBlock({
 
   if (wistiaId) {
     return (
-      <iframe
-        src={`https://fast.wistia.net/embed/iframe/${wistiaId}`}
-        title={label}
-        allow="autoplay; fullscreen"
-        allowFullScreen
-        className={`aspect-video w-full rounded-2xl shadow-sm ${className}`}
-      />
+      <>
+        <script src="https://fast.wistia.com/player.js" async />
+        <script src={`https://fast.wistia.com/embed/${wistiaId}.js`} async type="module" />
+        {/* @ts-expect-error -- wistia-player is a web component, not a typed JSX element */}
+        <wistia-player
+          media-id={wistiaId}
+          className={`aspect-video w-full overflow-hidden rounded-2xl shadow-sm ${className}`}
+        />
+      </>
     );
   }
 
