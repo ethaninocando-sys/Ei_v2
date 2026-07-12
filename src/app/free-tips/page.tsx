@@ -31,7 +31,12 @@ export default function FreeTipsPage() {
         </FadeIn>
 
         <FadeIn delay={120} className="mt-10">
-          <VideoBlock src={tipsVideoSrc} poster={tipsPoster} label={freeTips.videoLabel} />
+          <VideoBlock
+            src={tipsVideoSrc}
+            wistiaId={video.tipsWistiaId}
+            poster={tipsPoster}
+            label={freeTips.videoLabel}
+          />
         </FadeIn>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-3">
