@@ -9,13 +9,13 @@
 
 import { siteConfig } from "./config";
 
-// Anchor links are prefixed with "/" so they work from /local-seo and
-// /free-tips too, not just the homepage.
+// Anchor links point at /seo, where these sections live, so they work from
+// any page, not just /seo itself.
 export const nav = [
-  { label: "The difference", href: "/#difference" },
-  { label: "How it works", href: "/#how-it-works" },
-  { label: "Local SEO", href: "/local-seo" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "The difference", href: "/seo#difference" },
+  { label: "How it works", href: "/seo#how-it-works" },
+  { label: "Local SEO", href: "/seo" },
+  { label: "FAQ", href: "/seo#faq" },
 ];
 
 export const hero = {
@@ -269,10 +269,10 @@ export const freeTips = {
       body: "Google trusts businesses whose name, address, and phone number match everywhere: directories, the chamber of commerce, the online yellow pages. Inconsistency is a mess, and Google doesn't trust a mess.",
     },
   ],
-  cta: { label: "See how I'd do it for you", href: "/local-seo" },
+  cta: { label: "See how I'd do it for you", href: "/" },
 };
 
-// /local-seo — the sales page: video, honest requirements, booking form.
+// / (homepage) — the sales page: video, honest requirements, booking form.
 export const localSeo = {
   hero: {
     eyebrow: "For local businesses",
