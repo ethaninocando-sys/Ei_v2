@@ -1,14 +1,16 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { siteConfig } from "@/lib/config";
+import { submitToFormspree } from "@/lib/formspree";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /**
- * "3 free tips" signup. Two effects, no database:
- * 1. Adds the contact to the Resend audience (RESEND_AUDIENCE_ID) so they get
+ * "3 free tips" signup. Three effects:
+ * 1. Records the lead in Formspree (submission record/"database").
+ * 2. Adds the contact to the Resend audience (RESEND_AUDIENCE_ID) so they get
  *    the newsletter — skipped gracefully if the audience isn't configured yet.
- * 2. Emails them the link to the /free-tips video page.
+ * 3. Emails them the link to the /free-tips video page.
  */
 export async function POST(request: Request) {
   const body = await request.json();
@@ -18,9 +20,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Enter a valid email address." }, { status: 400 });
   }
 
+  // Record the lead in Formspree regardless of Resend's config/health, so a
+  // signup is never lost to an email misconfiguration.
+  const formspreeSubmit = submitToFormspree({ formType: "newsletter", email });
+
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     console.error("RESEND_API_KEY is not set — signup email was not sent.");
+    await formspreeSubmit;
     return NextResponse.json(
       { error: "Signups aren't configured yet. Try again later." },
       { status: 500 },
@@ -114,14 +121,17 @@ ${siteConfig.email}`;
   </body>
 </html>`;
 
-  const { error } = await resend.emails.send({
-    from,
-    to: email,
-    replyTo: siteConfig.email,
-    subject: "Your 3 free tips to rank higher on Google",
-    text,
-    html,
-  });
+  const [{ error }] = await Promise.all([
+    resend.emails.send({
+      from,
+      to: email,
+      replyTo: siteConfig.email,
+      subject: "Your 3 free tips to rank higher on Google",
+      text,
+      html,
+    }),
+    formspreeSubmit,
+  ]);
 
   if (error) {
     console.error("Resend error:", error);

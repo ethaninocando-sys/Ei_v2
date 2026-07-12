@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { siteConfig } from "@/lib/config";
+import { submitToFormspree } from "@/lib/formspree";
 
 const PHONE_PATTERN = /^\(\d{3}\) \d{3}-\d{4}$/;
 
@@ -36,9 +37,25 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Enter a valid phone number." }, { status: 400 });
   }
 
+  // Record the lead in Formspree regardless of Resend's config/health, so a
+  // submission is never lost to an email misconfiguration.
+  const formspreeSubmit = submitToFormspree({
+    formType: "inquiry",
+    _subject: `New inquiry — ${firstName} ${lastName} (${businessName})`,
+    firstName,
+    lastName,
+    email,
+    phone,
+    businessName,
+    industry,
+    website: website || undefined,
+    message,
+  });
+
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     console.error("RESEND_API_KEY is not set — inquiry email was not sent.");
+    await formspreeSubmit;
     return NextResponse.json(
       { error: "Email sending isn't configured yet. Try again later." },
       { status: 500 },
@@ -115,24 +132,27 @@ ${siteConfig.email}`;
   </body>
 </html>`;
 
-  const { error } = await resend.batch.send([
-    // Internal lead notification — plain and functional.
-    {
-      from,
-      to: notifyTo,
-      replyTo: String(email),
-      subject: `New inquiry — ${firstName} ${lastName} (${businessName})`,
-      text: `Name: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\nBusiness: ${businessName}\nIndustry: ${industry}\nWebsite/GBP: ${website || "—"}\n\nChallenge:\n${message}`,
-    },
-    // Customer confirmation — branded, with a plain-text fallback.
-    {
-      from,
-      to: String(email),
-      replyTo: siteConfig.email,
-      subject: "Thanks for reaching out — Ei Conversion",
-      text: confirmationText,
-      html: confirmationHtml,
-    },
+  const [{ error }] = await Promise.all([
+    resend.batch.send([
+      // Internal lead notification — plain and functional.
+      {
+        from,
+        to: notifyTo,
+        replyTo: String(email),
+        subject: `New inquiry — ${firstName} ${lastName} (${businessName})`,
+        text: `Name: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\nBusiness: ${businessName}\nIndustry: ${industry}\nWebsite/GBP: ${website || "—"}\n\nChallenge:\n${message}`,
+      },
+      // Customer confirmation — branded, with a plain-text fallback.
+      {
+        from,
+        to: String(email),
+        replyTo: siteConfig.email,
+        subject: "Thanks for reaching out — Ei Conversion",
+        text: confirmationText,
+        html: confirmationHtml,
+      },
+    ]),
+    formspreeSubmit,
   ]);
 
   if (error) {
