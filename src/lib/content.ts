@@ -14,7 +14,7 @@ import { siteConfig } from "./config";
 export const nav = [
   { label: "The difference", href: "/seo#difference" },
   { label: "How it works", href: "/seo#how-it-works" },
-  { label: "Local SEO", href: "/seo" },
+  { label: "Local SEO", href: "/" },
   { label: "FAQ", href: "/seo#faq" },
 ];
 

@@ -6,7 +6,7 @@ export function Wordmark({ tone = "ink" }: { tone?: "ink" | "light" }) {
   const color = tone === "light" ? "text-white" : "text-ink";
   const sub = tone === "light" ? "text-white/70" : "text-stone";
   return (
-    <Link href="/" className="group inline-flex items-center gap-2.5 leading-none">
+    <Link href="/seo" className="group inline-flex items-center gap-2.5 leading-none">
       <Image
         src="/logo.svg"
         alt=""
