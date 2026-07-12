@@ -39,6 +39,7 @@ export default function LocalSeoPage() {
           <FadeIn delay={120} className="mt-10">
             <VideoBlock
               src={salesVideoSrc}
+              wistiaId={video.salesWistiaId}
               poster={salesPoster}
               label={localSeo.hero.videoLabel}
             />
