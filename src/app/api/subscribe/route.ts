@@ -53,18 +53,18 @@ export async function POST(request: Request) {
 
   const text = `Hey,
 
-Thanks for signing up. Here are your 3 free tips — the first three things I do when I start working with a local business to get them into the top 3 on Google:
+Thanks for signing up. Here are your 3 free tips, the first three things I do when I start working with a local business to get them into the top 3 on Google:
 
 Watch the video here: ${tipsUrl}
 
 Quick preview:
-1. Fill out your Google Business Profile — completely.
+1. Completely fill out your Google Business Profile.
 2. Make your website say what you do and where you do it.
 3. Clean up your citations so Google trusts you.
 
 The video walks through all three with real examples. No technical know-how needed.
 
-If you ever want to stop getting emails from me, just unsubscribe — I'm not in the business of bothering people.
+If you ever want to stop getting emails from me, just unsubscribe. I'm not in the business of bothering people.
 
 Talk soon,
 Ethan
@@ -88,10 +88,10 @@ ${siteConfig.email}`;
               <td style="background-color:#faf8f3;padding:40px;">
                 <h1 style="margin:0 0 16px;font-family:Georgia,'Times New Roman',serif;font-size:24px;font-weight:600;color:#16223b;">Your 3 free tips are ready.</h1>
                 <p style="margin:0 0 24px;font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#16223b;">
-                  These are the first three things I do when I start working with a local business to get them into the top 3 on Google — explained in one short video, no technical know-how needed.
+                  These are the first three things I do when I start working with a local business to get them into the top 3 on Google, explained in one short video, no technical know-how needed.
                 </p>
                 <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 28px;">
-                  <tr><td style="font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.7;color:#16223b;padding-bottom:8px;"><span style="color:#0f7a53;font-weight:700;">1.</span>&nbsp; Fill out your Google Business Profile — completely.</td></tr>
+                  <tr><td style="font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.7;color:#16223b;padding-bottom:8px;"><span style="color:#0f7a53;font-weight:700;">1.</span>&nbsp; Completely fill out your Google Business Profile.</td></tr>
                   <tr><td style="font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.7;color:#16223b;padding-bottom:8px;"><span style="color:#0f7a53;font-weight:700;">2.</span>&nbsp; Make your website say what you do and where you do it.</td></tr>
                   <tr><td style="font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.7;color:#16223b;"><span style="color:#0f7a53;font-weight:700;">3.</span>&nbsp; Clean up your citations so Google trusts you.</td></tr>
                 </table>

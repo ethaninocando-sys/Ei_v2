@@ -140,7 +140,7 @@ export function InquiryForm() {
 
         <div>
           <Label htmlFor="website">Website or Google listing</Label>
-          <input id="website" name="website" className={fieldBase} placeholder="Optional — your site or GBP link" />
+          <input id="website" name="website" className={fieldBase} placeholder="Optional: your site or GBP link" />
         </div>
 
         <div>

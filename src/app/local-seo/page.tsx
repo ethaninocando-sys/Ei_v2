@@ -11,9 +11,9 @@ import { video } from "@/lib/config";
 import { existingImage } from "@/lib/assets";
 
 export const metadata: Metadata = {
-  title: "Local SEO — rank in the top 3 on Google",
+  title: "Local SEO: rank in the top 3 on Google",
   description:
-    "The only two things you need to know about marketing a local business — and how Ei Conversion gets Rio Grande Valley businesses into the top 3 on Google. $497/mo, 90-day top-3 guarantee.",
+    "The only two things you need to know about marketing a local business, and how Ei Conversion gets Rio Grande Valley businesses into the top 3 on Google. $497/mo, 90-day top-3 guarantee.",
 };
 
 export default function LocalSeoPage() {
@@ -77,7 +77,7 @@ export default function LocalSeoPage() {
           ))}
         </div>
         <FadeIn className="mt-10">
-          <Button href="#book">Sounds like me — book the call</Button>
+          <Button href="#book">Sounds like me, book the call</Button>
         </FadeIn>
       </Section>
 

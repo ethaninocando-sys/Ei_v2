@@ -41,7 +41,7 @@ export async function POST(request: Request) {
   // submission is never lost to an email misconfiguration.
   const formspreeSubmit = submitToFormspree({
     formType: "inquiry",
-    _subject: `New inquiry — ${firstName} ${lastName} (${businessName})`,
+    _subject: `New inquiry: ${firstName} ${lastName} (${businessName})`,
     firstName,
     lastName,
     email,
@@ -81,7 +81,7 @@ Thanks for reaching out to Ei Conversion. I got your details for ${businessName}
 Here's what happens next:
 1. I'll review your business and where you currently rank across the Valley.
 2. I'll reach out within 24 hours to book your free strategy call.
-3. On the call I'll show you exactly what it would take to get you into the top 3 — no pressure, no obligation.
+3. On the call I'll show you exactly what it would take to get you into the top 3. No pressure, no obligation.
 
 Talk soon,
 Ethan
@@ -111,7 +111,7 @@ ${siteConfig.email}`;
                 <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 28px;">
                   <tr><td style="font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.7;color:#16223b;padding-bottom:8px;"><span style="color:#0f7a53;font-weight:700;">1.</span>&nbsp; I'll review your business and where you currently rank.</td></tr>
                   <tr><td style="font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.7;color:#16223b;padding-bottom:8px;"><span style="color:#0f7a53;font-weight:700;">2.</span>&nbsp; I'll reach out within 24 hours to book your free strategy call.</td></tr>
-                  <tr><td style="font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.7;color:#16223b;"><span style="color:#0f7a53;font-weight:700;">3.</span>&nbsp; On the call I'll show you exactly what it takes to reach the top 3 — no pressure.</td></tr>
+                  <tr><td style="font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.7;color:#16223b;"><span style="color:#0f7a53;font-weight:700;">3.</span>&nbsp; On the call I'll show you exactly what it takes to reach the top 3. No pressure.</td></tr>
                 </table>
                 <p style="margin:0;font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#16223b;">
                   Talk soon,<br />
@@ -139,15 +139,15 @@ ${siteConfig.email}`;
         from,
         to: notifyTo,
         replyTo: String(email),
-        subject: `New inquiry — ${firstName} ${lastName} (${businessName})`,
-        text: `Name: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\nBusiness: ${businessName}\nIndustry: ${industry}\nWebsite/GBP: ${website || "—"}\n\nChallenge:\n${message}`,
+        subject: `New inquiry: ${firstName} ${lastName} (${businessName})`,
+        text: `Name: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\nBusiness: ${businessName}\nIndustry: ${industry}\nWebsite/GBP: ${website || "N/A"}\n\nChallenge:\n${message}`,
       },
       // Customer confirmation — branded, with a plain-text fallback.
       {
         from,
         to: String(email),
         replyTo: siteConfig.email,
-        subject: "Thanks for reaching out — Ei Conversion",
+        subject: "Thanks for reaching out · Ei Conversion",
         text: confirmationText,
         html: confirmationHtml,
       },
