@@ -152,7 +152,7 @@ export const caseStudy = {
     heatmap: {
       src: "/images/case-study-heatmap.png",
       alt: "Google Maps ranking heatmap — ranked #1 across Edinburg, TX",
-      label: "Ranking heatmap (real, once available)",
+      label: "Ranking heatmap",
       ratio: "16 / 10",
     },
     gbp: {
