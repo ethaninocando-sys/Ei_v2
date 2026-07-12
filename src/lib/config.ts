@@ -52,7 +52,7 @@ export const video = {
   salesSrc: "/videos/local-seo.mp4",
   salesPoster: "/images/local-seo-poster.jpg",
   // /free-tips "3 free tips" video (~7:00)
-  tipsWistiaId: "",
+  tipsWistiaId: "jdunga86bg",
   tipsSrc: "/videos/free-tips.mp4",
   tipsPoster: "/images/free-tips-poster.jpg",
 };
